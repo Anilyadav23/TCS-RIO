@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Page with Captcha Verification</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Tech Geek</h1>
+      </header>
+	  <div class="login-container">
+	<h2 style="text-align: center;">Login Page</h2>
+	<p style="text-align: center;">Fill up the form with correct values.</p>
+	<form action="#" method="post" onsubmit="return validateForm();">
+		<div class="input-container">
+			<label for="username">Username:</label> <input type="text" placeholder="username" style="text-align: center;">
+	     <label for="password">Password:</label>
+		<input type="text" id="password" name="password" style="text-align: center;" placeholder="password">
+		<label for="captcha" >Enter the characters you see in the image:</label>
+		<div id="captcha"></div>
+		<h3>Captcha not visible <a href=""><img src="refresh.jpg" width="20px" onclick="cap()"></a></h3>
+		<input type="text" id="captcha-input" name="captcha-input">
+	</div>
+			<button type="submit"  class="submit-button">Submit</button>
+		
+	</form>
+<p style="text-align: center;">New Here?<a href="">Sign Up</a> </p>
+
+</div>
+	</form>
+</div>
+	<script>
+		function generateCaptcha() {
+			var chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+			var captchaLength = 6;
+			var captcha = "";
+			for (var i = 0; i < captchaLength; i++) {
+				var randomIndex = Math.floor(Math.random() * chars.length);
+				captcha += chars[randomIndex];
+			}
+			return captcha;
+		}
+
+		function updateCaptcha() {
+			var captcha = generateCaptcha();
+			document.getElementById("captcha").innerHTML = captcha;
+			document.getElementById("captcha-input").value = "";
+		}
+
+		function validateForm() {
+			var captcha = document.getElementById("captcha").innerHTML;
+			var captchaInput = document.getElementById("captcha-input").value;
+			if (captchaInput == captcha) {
+				alert("Form is validated Succesfully");
+				return true;
+			} else {
+				alert("Incorrect captcha, please try again.");
+				updateCaptcha();
+				return false;
+			}
+		}
+
+		document.addEventListener("DOMContentLoaded", function(event) {
+			updateCaptcha();
+			document.getElementById("captcha").addEventListener("click", function() {
+				updateCaptcha();
+			});
+		});
+	</script>
+</body>
+</html>
