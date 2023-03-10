@@ -1,0 +1,52 @@
+header {
+    text-align: center;
+    height: 65px;
+    background-color: rgb(225, 225, 232);
+    position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+  }
+  label {
+    display: block;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#captcha {
+    display: block;
+    margin-bottom: 10px;
+}  
+.input-container {
+    text-align: center;
+  }
+  
+  .input-container input[type="text"] {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+  }
+  button {
+    display: block;
+    margin: auto;
+
+}
+.login-container {
+    border: 3px solid;
+    border-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet) 1;
+	padding: 20px;
+	margin: 50px auto;
+	max-width: 650px;
+	text-align: center;
+    margin-top: 83px;
+}
+ .submit-button {
+      background-color: #007bff; /* blue color */
+      color: #fff; /* white text color */
+      padding: 10px 20px; /* adjust padding as needed */
+      border: none; /* remove border */
+      border-radius: 5px; /* round edges */
+    }
